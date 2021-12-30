@@ -87,7 +87,7 @@ static const char *browsercmd[]  = { "google-chrome-stable", NULL };
 static const char *dualmon_1[] = { "/home/shaobo/scripts/dualmon_0.sh", NULL };
 static const char *dualmon_2[] = { "/home/shaobo/scripts/dualmon_1.sh", NULL };
 static const char *singlemon[] = { "/home/shaobo/scripts/singlemon.sh", NULL };
-static const char *togvpn[] = { "home/shaobo/scripts/start_vpn.sh", NULL};
+static const char *togvpn[] = { "/home/shaobo/scripts/start_vpn.sh", NULL};
 
 static const char *upvol[]   = { "/home/shaobo/scripts/vol-up.sh",  NULL };
 static const char *downvol[] = { "/home/shaobo/scripts/vol-down.sh",  NULL };
