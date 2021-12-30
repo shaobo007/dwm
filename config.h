@@ -84,7 +84,10 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "st", NULL };
 static const char *browsercmd[]  = { "google-chrome-stable", NULL };
-static const char *dualmon[] = { "/home/shaobo/scripts/dualmon.sh", NULL};
+static const char *dualmon_1[] = { "/home/shaobo/scripts/dualmon_0.sh", NULL };
+static const char *dualmon_2[] = { "/home/shaobo/scripts/dualmon_1.sh", NULL };
+static const char *singlemon[] = { "/home/shaobo/scripts/singlemon.sh", NULL };
+static const char *togvpn[] = { "home/shaobo/scripts/start_vpn.sh", NULL};
 
 static const char *upvol[]   = { "/home/shaobo/scripts/vol-up.sh",  NULL };
 static const char *downvol[] = { "/home/shaobo/scripts/vol-down.sh",  NULL };
@@ -107,10 +110,11 @@ static Key keys[] = {
 	{ MODKEY,              XK_s,                    spawn,          {.v = dmenucmd } },
 	{ MODKEY,              XK_Return,               spawn,          {.v = termcmd } },
 	{ MODKEY,              XK_c,                    spawn,          {.v = browsercmd } },
-	//{ MODKEY|ShiftMask,    XK_w,                    spawn,          {.v = setqwertycmd } },
-	{ MODKEY|ShiftMask,    XK_m,                    spawn,          {.v = dualmon } },
+	{ MODKEY,              XK_m,                    spawn,          {.v = dualmon_1 } },
+	{ MODKEY|ShiftMask,    XK_m,                    spawn,          {.v = dualmon_2 } },
+	{ MODKEY|ShiftMask,    XK_n,                    spawn,          {.v = singlemon } },
+	{ MODKEY,              XK_v,                    spawn,          {.v = togvpn } },
 	{ MODKEY|ShiftMask,    XK_z,                    spawn,          {.v = suspendcmd } },
-	//{ MODKEY|ControlMask,  XK_s,                    spawn,          {.v = sktogglecmd } },
 	{ 0,                   XF86XK_AudioLowerVolume, spawn,          {.v = downvol } },
 	{ 0,                   XF86XK_AudioMute,        spawn,          {.v = mutevol } },
 	{ 0,                   XF86XK_AudioRaiseVolume, spawn,          {.v = upvol   } },
@@ -139,7 +143,7 @@ static Key keys[] = {
 	{ MODKEY,              XK_Tab,                  view,           {0} },
 	{ MODKEY|ShiftMask,    XK_q,                    killclient,     {0} },
 	{ MODKEY,              XK_t,                    setlayout,      {.v = &layouts[0]} },
-	{ MODKEY,              XK_m,                    setlayout,      {.v = &layouts[2]} },
+	{ MODKEY,              XK_y,                    setlayout,      {.v = &layouts[2]} },
 	{ MODKEY|ShiftMask,    XK_f,                    fullscreen,     {0} },
 	{ MODKEY,              XK_space,                setlayout,      {0} },
 	{ MODKEY|ShiftMask,    XK_space,                togglefloating, {0} },
