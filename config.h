@@ -102,6 +102,8 @@ static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "80x24"
 //static const char *setqwertycmd[]  = { "/home/david/scripts/setxmodmap-qwerty.sh", NULL };
 
 static const char *suspendcmd[]  = { "/home/shaobo/scripts/suspend.sh", NULL };
+static const char *rebootcmd[]  = { "/home/shaobo/scripts/reboot.sh", NULL };
+static const char *poweroffcmd[]  = { "/home/shaobo/scripts/poweroff.sh", NULL };
 
 static const char *screenshotcmd[] = { "flameshot", "gui", NULL };
 
@@ -114,7 +116,9 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,    XK_m,                    spawn,          {.v = dualmon_2 } },
 	{ MODKEY|ShiftMask,    XK_n,                    spawn,          {.v = singlemon } },
 	{ MODKEY,              XK_v,                    spawn,          {.v = togvpn } },
-	{ MODKEY|ShiftMask,    XK_z,                    spawn,          {.v = suspendcmd } },
+	{ MODKEY,              XK_z,                    spawn,          {.v = suspendcmd } },
+	{ MODKEY|ShiftMask,    XK_z,                    spawn,          {.v = rebootcmd } },
+	{ MODKEY|ControlMask,  XK_z,                    spawn,          {.v = poweroffcmd } },
 	{ 0,                   XF86XK_AudioLowerVolume, spawn,          {.v = downvol } },
 	{ 0,                   XF86XK_AudioMute,        spawn,          {.v = mutevol } },
 	{ 0,                   XF86XK_AudioRaiseVolume, spawn,          {.v = upvol   } },
@@ -141,7 +145,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,    XK_o,                    restoreotherwins, {0}},
 	{ MODKEY|ShiftMask,    XK_Return,               zoom,           {0} },
 	{ MODKEY,              XK_Tab,                  view,           {0} },
-	{ MODKEY|ShiftMask,    XK_q,                    killclient,     {0} },
+	{ MODKEY,    XK_q,                    killclient,     {0} },
 	{ MODKEY,              XK_t,                    setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,              XK_y,                    setlayout,      {.v = &layouts[2]} },
 	{ MODKEY|ShiftMask,    XK_f,                    fullscreen,     {0} },
