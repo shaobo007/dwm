@@ -17,8 +17,8 @@ static const int smartgaps          = 1;        /* 1 means no outer gap when the
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 0;        /* 0 means bottom bar */
 static const Bool viewontag         = True;     /* Switch view on tag switch */
-static const char *fonts[]          = { "Hack Nerd Font Mono:size=14" };
-static const char dmenufont[]       = "Hack Nerd Font Mono:size=14";
+static const char *fonts[]          = { "Hack Nerd Font Mono:size=13" };
+static const char dmenufont[]       = "Hack Nerd Font Mono:size=13";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
@@ -115,7 +115,7 @@ static Key keys[] = {
 	{ MODKEY,              XK_m,                    spawn,          {.v = dualmon_1 } },
 	{ MODKEY|ShiftMask,    XK_m,                    spawn,          {.v = dualmon_2 } },
 	{ MODKEY|ShiftMask,    XK_n,                    spawn,          {.v = singlemon } },
-	{ MODKEY,              XK_v,                    spawn,          {.v = togvpn } },
+	{ MODKEY|ControlMask,  XK_v,                    spawn,          {.v = togvpn } },
 	{ MODKEY,              XK_z,                    spawn,          {.v = suspendcmd } },
 	{ MODKEY|ShiftMask,    XK_z,                    spawn,          {.v = rebootcmd } },
 	{ MODKEY|ControlMask,  XK_z,                    spawn,          {.v = poweroffcmd } },
@@ -145,7 +145,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,    XK_o,                    restoreotherwins, {0}},
 	{ MODKEY|ShiftMask,    XK_Return,               zoom,           {0} },
 	{ MODKEY,              XK_Tab,                  view,           {0} },
-	{ MODKEY,    XK_q,                    killclient,     {0} },
+	{ MODKEY,              XK_q,                    killclient,     {0} },
 	{ MODKEY,              XK_t,                    setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,              XK_y,                    setlayout,      {.v = &layouts[2]} },
 	{ MODKEY|ShiftMask,    XK_f,                    fullscreen,     {0} },
