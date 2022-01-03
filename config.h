@@ -81,13 +81,12 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+static const char *dmenucmd[] = { "dmenu_run", NULL };
 static const char *termcmd[]  = { "st", NULL };
 static const char *browsercmd[]  = { "google-chrome-stable", NULL };
-static const char *dualmon_1[] = { "/home/shaobo/scripts/dualmon_0.sh", NULL };
-static const char *dualmon_2[] = { "/home/shaobo/scripts/dualmon_1.sh", NULL };
-static const char *singlemon[] = { "/home/shaobo/scripts/singlemon.sh", NULL };
+static const char *monitorselect[] = { "/home/shaobo/scripts/displayselect", NULL };
 static const char *togvpn[] = { "/home/shaobo/scripts/start_vpn.sh", NULL};
+static const char *copyemoji[] = { "/home/shaobo/scripts/copyemoji", NULL};
 
 static const char *upvol[]   = { "/home/shaobo/scripts/vol-up.sh",  NULL };
 static const char *downvol[] = { "/home/shaobo/scripts/vol-down.sh",  NULL };
@@ -96,14 +95,9 @@ static const char *mutevol[] = { "/home/shaobo/scripts/vol-toggle.sh",  NULL };
 static const char *wpcmd[]  = { "/home/shaobo/scripts/wp-change.sh", NULL };
 //static const char *sktogglecmd[]  = { "/home/david/scripts/sck-tog.sh", NULL };
 static const char scratchpadname[] = "scratchpad";
-static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "80x24", NULL };
+static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "90x30", NULL };
 
-//static const char *setcolemakcmd[]  = { "/home/david/scripts/setxmodmap-colemak.sh", NULL };
-//static const char *setqwertycmd[]  = { "/home/david/scripts/setxmodmap-qwerty.sh", NULL };
-
-static const char *suspendcmd[]  = { "/home/shaobo/scripts/suspend.sh", NULL };
-static const char *rebootcmd[]  = { "/home/shaobo/scripts/reboot.sh", NULL };
-static const char *poweroffcmd[]  = { "/home/shaobo/scripts/poweroff.sh", NULL };
+static const char *sysact[]  = { "/home/shaobo/scripts/sysact", NULL };
 
 static const char *screenshotcmd[] = { "flameshot", "gui", NULL };
 
@@ -112,13 +106,10 @@ static Key keys[] = {
 	{ MODKEY,              XK_s,                    spawn,          {.v = dmenucmd } },
 	{ MODKEY,              XK_Return,               spawn,          {.v = termcmd } },
 	{ MODKEY,              XK_c,                    spawn,          {.v = browsercmd } },
-	{ MODKEY,              XK_m,                    spawn,          {.v = dualmon_1 } },
-	{ MODKEY|ShiftMask,    XK_m,                    spawn,          {.v = dualmon_2 } },
-	{ MODKEY|ShiftMask,    XK_n,                    spawn,          {.v = singlemon } },
+	{ MODKEY|ControlMask,  XK_m,                    spawn,          {.v = monitorselect } },
 	{ MODKEY|ControlMask,  XK_v,                    spawn,          {.v = togvpn } },
-	{ MODKEY,              XK_z,                    spawn,          {.v = suspendcmd } },
-	{ MODKEY|ShiftMask,    XK_z,                    spawn,          {.v = rebootcmd } },
-	{ MODKEY|ControlMask,  XK_z,                    spawn,          {.v = poweroffcmd } },
+	{ MODKEY|ControlMask,  XK_z,                    spawn,          {.v = sysact } },
+	{ MODKEY,              XK_m,                    spawn,          {.v = copyemoji } },
 	{ 0,                   XF86XK_AudioLowerVolume, spawn,          {.v = downvol } },
 	{ 0,                   XF86XK_AudioMute,        spawn,          {.v = mutevol } },
 	{ 0,                   XF86XK_AudioRaiseVolume, spawn,          {.v = upvol   } },
@@ -137,8 +128,8 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,    XK_l,                    tagtoright,     {0} },
 	{ MODKEY|ShiftMask,    XK_u,                    incnmaster,     {.i = +1 } },
 	{ MODKEY|ShiftMask,    XK_i,                    incnmaster,     {.i = -1 } },
-	{ MODKEY,              XK_u,                    setmfact,       {.f = -0.05} },
-	{ MODKEY,              XK_i,                    setmfact,       {.f = +0.05} },
+	{ MODKEY,              XK_u,                    setmfact,       {.f = -0.05 } },
+	{ MODKEY,              XK_i,                    setmfact,       {.f = +0.05 } },
 	{ MODKEY,              XK_e,                    hidewin,        {0} },
 	{ MODKEY|ShiftMask,    XK_e,                    restorewin,     {0} },
 	{ MODKEY,              XK_o,                    hideotherwins,  {0}},
