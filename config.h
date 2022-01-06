@@ -18,7 +18,6 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 0;        /* 0 means bottom bar */
 static const Bool viewontag         = True;     /* Switch view on tag switch */
 static const char *fonts[]          = { "Hack Nerd Font Mono:size=13" };
-static const char dmenufont[]       = "Hack Nerd Font Mono:size=13";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
@@ -90,6 +89,8 @@ static const char *upvol[]   = { "/home/shaobo/scripts/vol-up.sh",  NULL };
 static const char *downvol[] = { "/home/shaobo/scripts/vol-down.sh",  NULL };
 static const char *mutevol[] = { "/home/shaobo/scripts/vol-toggle.sh",  NULL };
 
+static const char *start_vpn[] = { "/home/shaobo/scripts/bin/start-vpn",  NULL };
+
 static const char scratchpadname[] = "scratchpad";
 static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "90x30", NULL };
 
@@ -104,6 +105,7 @@ static Key keys[] = {
 	{ MODKEY,              XK_bracketleft,          spawn,          {.v = downvol } },
 	{ MODKEY,              XK_backslash,            spawn,          {.v = mutevol } },
 	{ MODKEY,              XK_bracketright,         spawn,          {.v = upvol   } },
+	{ MODKEY|ControlMask,  XK_v,                    spawn,          {.v = start_vpn   } },
 	{ MODKEY|ShiftMask,    XK_j,                    rotatestack,    {.i = +1 } },
 	{ MODKEY|ShiftMask,    XK_k,                    rotatestack,    {.i = -1 } },
 	{ MODKEY,              XK_j,                    focusstack,     {.i = +1 } },
