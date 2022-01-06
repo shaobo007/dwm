@@ -83,43 +83,27 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", NULL };
 static const char *termcmd[]  = { "st", NULL };
-static const char *samedirterm[]  = { "/home/shaobo/scripts/samedir", NULL };
 static const char *browsercmd[]  = { "google-chrome-stable", NULL };
-static const char *monitorselect[] = { "/home/shaobo/scripts/displayselect", NULL };
-static const char *togvpn[] = { "/home/shaobo/scripts/start_vpn.sh", NULL};
-static const char *copyemoji[] = { "/home/shaobo/scripts/copyemoji", NULL};
 
+//control the sys volume
 static const char *upvol[]   = { "/home/shaobo/scripts/vol-up.sh",  NULL };
 static const char *downvol[] = { "/home/shaobo/scripts/vol-down.sh",  NULL };
 static const char *mutevol[] = { "/home/shaobo/scripts/vol-toggle.sh",  NULL };
 
-static const char *wpcmd[]  = { "/home/shaobo/scripts/wp-change.sh", NULL };
-//static const char *sktogglecmd[]  = { "/home/david/scripts/sck-tog.sh", NULL };
 static const char scratchpadname[] = "scratchpad";
 static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "90x30", NULL };
-
-static const char *sysact[]  = { "/home/shaobo/scripts/sysact", NULL };
-
-static const char *screenshotcmd[] = { "flameshot", "gui", NULL };
 
 static Key keys[] = {
 	/* modifier            key                      function        argument */
 	{ MODKEY,              XK_d,                    spawn,          {.v = dmenucmd } },
 	{ MODKEY,              XK_Return,               spawn,          {.v = termcmd } },
-	{ MODKEY,              XK_s,                    spawn,          {.v = samedirterm } },
-	{ MODKEY,              XK_c,                    spawn,          {.v = browsercmd } },
-	{ MODKEY|ControlMask,  XK_m,                    spawn,          {.v = monitorselect } },
-	{ MODKEY|ControlMask,  XK_v,                    spawn,          {.v = togvpn } },
-	{ MODKEY|ControlMask,  XK_z,                    spawn,          {.v = sysact } },
-	{ MODKEY,              XK_m,                    spawn,          {.v = copyemoji } },
+  { MODKEY,              XK_c,                    spawn,          {.v = browsercmd } },
 	{ 0,                   XF86XK_AudioLowerVolume, spawn,          {.v = downvol } },
 	{ 0,                   XF86XK_AudioMute,        spawn,          {.v = mutevol } },
 	{ 0,                   XF86XK_AudioRaiseVolume, spawn,          {.v = upvol   } },
 	{ MODKEY,              XK_bracketleft,          spawn,          {.v = downvol } },
 	{ MODKEY,              XK_backslash,            spawn,          {.v = mutevol } },
 	{ MODKEY,              XK_bracketright,         spawn,          {.v = upvol   } },
-	{ MODKEY,              XK_b,                    spawn,          {.v = wpcmd } },
-	{ MODKEY,              XK_a,                    spawn,          {.v = screenshotcmd } },
 	{ MODKEY|ShiftMask,    XK_j,                    rotatestack,    {.i = +1 } },
 	{ MODKEY|ShiftMask,    XK_k,                    rotatestack,    {.i = -1 } },
 	{ MODKEY,              XK_j,                    focusstack,     {.i = +1 } },
