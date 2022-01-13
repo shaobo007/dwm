@@ -83,13 +83,12 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", NULL };
 static const char *termcmd[]  = { "st", NULL };
 static const char *browsercmd[]  = { "google-chrome-stable", NULL };
-
 //control the sys volume
 static const char *upvol[]   = { "/home/shaobo/scripts/vol-up.sh",  NULL };
 static const char *downvol[] = { "/home/shaobo/scripts/vol-down.sh",  NULL };
 static const char *mutevol[] = { "/home/shaobo/scripts/vol-toggle.sh",  NULL };
-
-static const char *start_vpn[] = { "/home/shaobo/scripts/bin/start-vpn",  NULL };
+//restart vpn server
+static const char *start_vpn[] = { "/home/shaobo/scripts/bin/vpn",  NULL };
 
 static const char scratchpadname[] = "scratchpad";
 static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "90x30", NULL };
