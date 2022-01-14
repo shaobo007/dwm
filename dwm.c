@@ -1069,7 +1069,7 @@ focusstack(const Arg *arg)
 		return;
 	}
 
-	if (!selmon->sel || selmon->sel->isfullscreen)
+	if (!selmon->sel || selmon->sel->isfullscreen && lockfullscreen)
 		return;
 	if (arg->i > 0) {
 		for (c = selmon->sel->next; c && (!ISVISIBLE(c) || HIDDEN(c)); c = c->next);
