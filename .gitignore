@@ -4,4 +4,4 @@ dwm
 *.rej
 *.orig
 *.diff
-
+.vim-bookmarks
