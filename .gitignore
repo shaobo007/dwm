@@ -5,3 +5,4 @@ dwm
 *.orig
 *.diff
 .vim-bookmarks
+*_
