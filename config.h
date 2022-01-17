@@ -67,13 +67,8 @@ static const Layout layouts[] = {
 	{ "Tile",     tile },    /* first entry is default */
 	{ "[M]",      monocle },
 	{ "[@]",      spiral },
-	{ "[\\]",     dwindle },
 	{ "H[]",      deck },
 	{ "TTT",      bstack },
-	{ "===",      bstackhoriz },
-	{ "HHH",      grid },
-	{ "###",      nrowgrid },
-	{ "---",      horizgrid },
 	{ ":::",      gaplessgrid },
 	{ "|M|",      centeredmaster },
 	{ ">M>",      centeredfloatingmaster },
@@ -142,13 +137,13 @@ static Key keys[] = {
 	{ MODKEY,              XK_Tab,                  view,               {0} },
 	{ MODKEY,              XK_q,                    killclient,         {0} },
 	{ MODKEY|ShiftMask,    XK_t,                    setlayout,          {.v = &layouts[0]} }, /* Tile */
-	{ MODKEY|ShiftMask,    XK_y,                    setlayout,          {.v = &layouts[2]} }, /* spiral */
-	{ MODKEY|ShiftMask,    XK_d,                    setlayout,          {.v = &layouts[4]} }, /* deck */
-	{ MODKEY|ShiftMask,    XK_b,                    setlayout,          {.v = &layouts[7]} }, /* grid */
-	{ MODKEY|ShiftMask,    XK_g,                    setlayout,          {.v = &layouts[8]} }, /* nrowgrid */
-	{ MODKEY|ShiftMask,    XK_r,                    setlayout,          {.v = &layouts[10]} }, /* gaplessgrid */
-	{ MODKEY|ShiftMask,    XK_f,                    setlayout,          {.v = &layouts[11]} }, /* centeredmaster  */
-	{ MODKEY|ShiftMask,    XK_c,                    setlayout,          {.v = &layouts[12]} }, /* centeredfloatingmaster */
+	{ MODKEY|ShiftMask,    XK_r,                    setlayout,          {.v = &layouts[1]} }, /* monocle "[M]" */
+	{ MODKEY|ShiftMask,    XK_y,                    setlayout,          {.v = &layouts[2]} }, /* spiral "[@]"" (fibonacci)i */
+	{ MODKEY|ShiftMask,    XK_d,                    setlayout,          {.v = &layouts[3]} }, /* deck "H[]"" */
+	{ MODKEY|ShiftMask,    XK_b,                    setlayout,          {.v = &layouts[4]} }, /* bstack "TTT" */
+	{ MODKEY|ShiftMask,    XK_g,                    setlayout,          {.v = &layouts[5]} }, /* gaplessgrid ":::" */
+	{ MODKEY|ShiftMask,    XK_c,                    setlayout,          {.v = &layouts[6]} }, /* centeredmaster  "|M|"*/
+	{ MODKEY|ShiftMask,    XK_f,                    setlayout,          {.v = &layouts[7]} }, /* centeredfloatingmaster ">M>" */
 	{ MODKEY,              XK_f,                    fullscreen,         {0} },
 	{ MODKEY,              XK_space,                setlayout,          {0} },
 	{ MODKEY|ShiftMask,    XK_space,                togglefloating,     {0} },
