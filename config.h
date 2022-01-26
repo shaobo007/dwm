@@ -69,7 +69,6 @@ static const Layout layouts[] = {
 	{ "[@]",      spiral },
 	{ "H[]",      deck },
 	{ "TTT",      bstack },
-	{ ":::",      gaplessgrid },
 	{ "|M|",      centeredmaster },
 	{ ">M>",      centeredfloatingmaster },
 	{ "><>",      NULL },    /* no layout function means floating behavior */
@@ -91,7 +90,9 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", NULL };
 static const char *termcmd[]  = { "st", NULL };
+static const char *tabtermcmd[]  = {"tabbed", "-r 2", "st", "-w", "''", NULL};
 static const char *browsercmd[]  = { "google-chrome-stable", NULL };
+static const char *surfcmd[]  = { "tabbed", "surf", "-e", NULL };
 //control the sys volume
 static const char *upvol[]   = { "/home/shaobo/scripts/vol-up.sh",  NULL };
 static const char *downvol[] = { "/home/shaobo/scripts/vol-down.sh",  NULL };
@@ -106,7 +107,9 @@ static Key keys[] = {
 	/* modifier            key                      function            argument */
 	{ MODKEY,              XK_d,                    spawn,              {.v = dmenucmd } },
 	{ MODKEY,              XK_Return,               spawn,              {.v = termcmd } },
+	{ MODKEY|Mod1Mask,     XK_Return,               spawn,              {.v = tabtermcmd } },
   { MODKEY,              XK_c,                    spawn,              {.v = browsercmd } },
+  { MODKEY|Mod1Mask,     XK_c,                    spawn,              {.v = surfcmd } },
 	{ 0,                   XF86XK_AudioLowerVolume, spawn,              {.v = downvol } },
 	{ 0,                   XF86XK_AudioMute,        spawn,              {.v = mutevol } },
 	{ 0,                   XF86XK_AudioRaiseVolume, spawn,              {.v = upvol   } },
@@ -141,9 +144,8 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,    XK_y,                    setlayout,          {.v = &layouts[2]} }, /* spiral "[@]"" (fibonacci)i */
 	{ MODKEY|ShiftMask,    XK_d,                    setlayout,          {.v = &layouts[3]} }, /* deck "H[]"" */
 	{ MODKEY|ShiftMask,    XK_b,                    setlayout,          {.v = &layouts[4]} }, /* bstack "TTT" */
-	{ MODKEY|ShiftMask,    XK_g,                    setlayout,          {.v = &layouts[5]} }, /* gaplessgrid ":::" */
-	{ MODKEY|ShiftMask,    XK_c,                    setlayout,          {.v = &layouts[6]} }, /* centeredmaster  "|M|"*/
-	{ MODKEY|ShiftMask,    XK_f,                    setlayout,          {.v = &layouts[7]} }, /* centeredfloatingmaster ">M>" */
+	{ MODKEY|ShiftMask,    XK_c,                    setlayout,          {.v = &layouts[5]} }, /* centeredmaster  "|M|"*/
+	{ MODKEY|ShiftMask,    XK_f,                    setlayout,          {.v = &layouts[6]} }, /* centeredfloatingmaster ">M>" */
 	{ MODKEY,              XK_f,                    fullscreen,         {0} },
 	{ MODKEY,              XK_space,                setlayout,          {0} },
 	{ MODKEY|ShiftMask,    XK_space,                togglefloating,     {0} },
