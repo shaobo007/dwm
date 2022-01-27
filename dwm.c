@@ -540,16 +540,16 @@ buttonpress(XEvent *e)
 			x += blw;
 			c = m->clients;
 
-			do {
-				if (!ISVISIBLE(c))
-					continue;
-				else
-					x += (1.0 / (double)m->bt) * m->btw;
-			} while (ev->x > x && (c = c->next));
-
 			if (c) {
-				click = ClkWinTitle;
-				arg.v = c;
+        do {
+          if (!ISVISIBLE(c))
+            continue;
+          else
+            x += (1.0 / (double)m->bt) * m->btw;
+        } while (ev->x > x && (c = c->next));
+
+          click = ClkWinTitle;
+          arg.v = c;
 			}
 		}
 	} else if ((c = wintoclient(ev->window))) {
@@ -1555,6 +1555,16 @@ propertynotify(XEvent *e)
 void
 quit(const Arg *arg)
 {
+	// fix: reloading dwm keeps all the hidden clients hidden
+	Monitor *m;
+	Client *c;
+	for (m = mons; m; m = m->next) {
+		if (m) {
+			for (c = m->stack; c; c = c->next)
+				if (c && HIDDEN(c)) show(c);
+		}
+	}
+
 	running = 0;
 }
 
